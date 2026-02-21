@@ -4,7 +4,7 @@ let accessToken: string | null = null;
 let tokenExpiresAt: number = 0;
 
 async function igdbQuery<T>(
-    endpoint: string, body: string, p0: string, p1: number,
+    endpoint: string, body: string
 ): Promise<T[]> {
 
     const token = await getAccessToken();
@@ -74,8 +74,6 @@ export async function searchGames(
            multiplayer_modes.*;
     where multiplayer_modes != null;
     limit ${limit};
-    `,
-        `igdb:search:${query}:${limit}`,
-        1800 // Cache searches for 30 min
+    `
     );
-}
+}   
