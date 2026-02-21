@@ -4,8 +4,7 @@ let accessToken: string | null = null;
 let tokenExpiresAt: number = 0;
 
 async function igdbQuery<T>(
-    endpoint: string,
-    body: string,
+    endpoint: string, body: string, p0: string, p1: number,
 ): Promise<T[]> {
 
     const token = await getAccessToken();
